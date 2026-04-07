@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantCare AI — Your Plant’s Voice</title>
+
+    <!-- ⭐ Option C Fonts (Poppins + Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Apply fonts globally -->
+    <style>
+        /* Headings use Poppins */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Body, buttons, inputs use Inter */
+        body, p, button, input, ul, li {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- TensorFlow.js + MobileNet -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0"></script>
+</head>
+<body>
+
+    <nav class="navbar glass">
+        <h1 class="logo">🌿 PlantCare AI</h1>
+        <div class="nav-links">
+            <button class="nav-btn" onclick="showSection('home')">Home</button>
+            <button class="nav-btn" onclick="showSection('analyze')">Analyze</button>
+            <button class="nav-btn" onclick="showSection('More information')">More Information</button>
+        </div>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="section active fade-in">
+        <div class="hero">
+            <h2 class="title">Your Plants Deserve a Voice</h2>
+            <p class="subtitle">
+                Upload a photo of your plant’s leaves and let AI translate patterns, color, and texture
+                into simple, clear guidance.
+            </p>
+            <p class="ethos">
+                Powered by modern computer vision.  
+                Designed for plant lovers.  
+                Built to nurture growth.
+            </p>
+            <button class="main-btn pulse" onclick="showSection('analyze')">Start Your First Scan</button>
+            <br><br><br><br>
+            <h6>Please note that PlantCare AI is for experimental and entertainment purposes only.</h6>
+        </div>
+
+        <div class="floating-leaf leaf1">🍃</div>
+        <div class="floating-leaf leaf2">🌱</div>
+        <div class="floating-leaf leaf3">🍀</div>
+    </section>
+
+    <!-- ANALYZE SECTION -->
+    <section id="analyze" class="section fade-in">
+        <div class="scan-container glass">
+            <h2>Analyze Your Plant</h2>
+            <p class="scan-desc">
+                Upload a clear, close-up photo of your plant’s leaves.  
+                Plantcare AI will analyze patterns and textures to classify what it sees.
+            </p>
+
+            <input type="file" id="plantImage" accept="image/*">
+
+            <button class="scan-btn glow" onclick="analyzePlant()">Analyze Plant</button>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Listening to your plant...</p>
+            </div>
+
+            <div id="results" class="results-card glass hidden">
+                <h2 id="plantName">Prediction: --</h2>
+                <h3 id="healthScore">Confidence: --</h3>
+
+                <h4>What Your Plant Is Telling You</h4>
+                <ul id="issuesList"></ul>
+
+                <h4>Your Suggested Care Plan</h4>
+                <ul id="careList"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⭐ NEW SECTION -->
+    <section id="More information" class="section fade-in">
+        <div class="scan-container glass">
+            <h2>More Information</h2>
+            <p>Hello, my name is Satvik Thadi. I am the developer of PlantCare AI.
+                I created this project to explore the intersection of AI and plant care, and to provide a fun tool for plant enthusiasts. 
+                Please note that PlantCare AI is for experimental and entertainment purposes only, and should not be used as a substitute for professional plant care advice.
+            </p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+     
+</body>
+</html>

@@ -5,11 +5,11 @@ self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       return cache.addAll([
-        "/",
-        "/index.html",
-        "/style.css",
-        "/script.js",
-        "/manifest.json"
+        "/PlantVision/",
+        "/PlantVision/index.html",
+        "/PlantVision/style.css",
+        "/PlantVision/script.js",
+        "/PlantVision/manifest.json"
       ]);
     })
   );

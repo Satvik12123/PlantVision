@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlantCare AI — Your Plant’s Voice</title>
 
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#00eaff">
+
     <!-- ⭐ Option C Fonts (Poppins + Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -37,11 +40,11 @@
 <body>
 
     <nav class="navbar glass">
-        <h1 class="logo">🌿 PlantCare AI</h1>
+        <h1 class="logo">🌿 PlantVision AI</h1>
         <div class="nav-links">
             <button class="nav-btn" onclick="showSection('home')">Home</button>
             <button class="nav-btn" onclick="showSection('analyze')">Analyze</button>
-            <button class="nav-btn" onclick="showSection('More information')">More Information</button>
+            <button class="nav-btn" onclick="showSection('Moreinfo')">More Information</button>
         </div>
     </nav>
 
@@ -100,7 +103,7 @@
     </section>
 
     <!-- ⭐ NEW SECTION -->
-    <section id="More information" class="section fade-in">
+    <section id="Moreinfo" class="section fade-in">
         <div class="scan-container glass">
             <h2>More Information</h2>
             <p>Hello, my name is Satvik Thadi. I am the developer of PlantCare AI.
@@ -111,6 +114,11 @@
     </section>
 
     <script src="script.js"></script>
+    <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+</script>
      
 </body>
 </html>

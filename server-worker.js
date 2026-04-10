@@ -1,22 +1,33 @@
-const CACHE_NAME = "plantvision-v1";
-const assets = [
-  "/",
-  "/index.html",
-  "/style.css",
-  "/script.js",
-  "/manifest.json"
-];
+const CACHE_NAME = "plantcare-cache-" + Date.now();
 
-// Install
 self.addEventListener("install", event => {
+  self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(assets))
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll([
+        "/",
+        "/index.html",
+        "/style.css",
+        "/script.js",
+        "/manifest.json"
+      ]);
+    })
   );
 });
 
-// Fetch
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.map(key => {
+        if (key !== CACHE_NAME) return caches.delete(key);
+      }))
+    )
+  );
+  self.clients.claim();
+});
+
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
+    caches.match(event.request).then(res => res || fetch(event.request))
   );
 });

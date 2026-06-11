@@ -6,8 +6,8 @@
 }
 
 body {
-    background: radial-gradient(circle at top, #c8f5d4, #0b1721);
-    color: #f5fff8;
+    background: linear-gradient(circle at top, #aab3ac, #879189);
+    color: #083e19;
     min-height: 100vh;
 }
 
@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 32px;
+    padding: 16px 56px;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -24,8 +24,8 @@ body {
 }
 
 .glass {
-    background: rgba(10, 25, 20, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(24, 83, 45, 0.7);
+    border: 1px solid rgba(104, 93, 93, 0.08);
     border-radius: 16px;
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
 }
@@ -79,6 +79,11 @@ body {
     padding: 40px;      /* more breathing room */
 }
 
+.bubble {
+    font-family: 'Baloo 2', sans-serif;
+}
+
+
 .title {
     font-size: 2.4rem;
     margin-bottom: 12px;
@@ -101,13 +106,14 @@ body {
     border: none;
     padding: 12px 24px;
     border-radius: 999px;
-    background: linear-gradient(135deg, #4ade80, #22c55e);
-    color: #04110a;
+    background: linear-gradient(135deg, #49875e, #0b4724);
+    color: #12a456;
     font-weight: 600;
     cursor: pointer;
     font-size: 1rem;
     box-shadow: 0 12px 30px rgba(34, 197, 94, 0.45);
     transition: transform 0.15s, box-shadow 0.15s;
+    text-align: center;
 }
 
 .main-btn:hover {
@@ -118,7 +124,7 @@ body {
 /* Floating leaves */
 .floating-leaf {
     position: absolute;
-    font-size: 1.8rem;
+    font-size: 10rem;
     opacity: 0.7;
     animation: float 6s ease-in-out infinite;
 }

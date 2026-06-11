@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlantCare AI — Your Plant’s Voice</title>
+    <title>PlantVision — Your Plant’s Voice</title>
+
 
     <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#00eaff">
 
     <!-- ⭐ Option C Fonts (Poppins + Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Apply fonts globally -->
     <style>
@@ -29,6 +31,27 @@
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
         }
+        body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg,
+        #4a1e9b,
+        #231699,
+        #24558d,
+        #bec9c9,
+        #5f5f60,
+        #a5b9f1
+    );
+    background-size: 600% 600%;
+    animation: coolRainbow 16s ease infinite;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+@keyframes coolRainbow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
     </style>
 
     <link rel="stylesheet" href="style.css">
@@ -63,7 +86,6 @@
             </p>
             <button class="main-btn pulse" onclick="showSection('analyze')">Start Your First Scan</button>
             <br><br><br><br>
-            <h6>Please note that PlantCare AI is for experimental and entertainment purposes only.</h6>
         </div>
 
         <div class="floating-leaf leaf1">🍃</div>
@@ -86,14 +108,14 @@
 
             <div id="loading" class="loading hidden">
                 <div class="spinner"></div>
-                <p>Listening to your plant...</p>
+                <p>Scanning image...</p>
             </div>
 
             <div id="results" class="results-card glass hidden">
                 <h2 id="plantName">Prediction: --</h2>
                 <h3 id="healthScore">Confidence: --</h3>
 
-                <h4>What Your Plant Is Telling You</h4>
+                <h4>What your plant is telling you...</h4>
                 <ul id="issuesList"></ul>
 
                 <h4>Your Suggested Care Plan</h4>
